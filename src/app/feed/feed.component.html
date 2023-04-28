@@ -1,0 +1,39 @@
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <div id="header">
+        <div>
+          <h3>
+            <ion-icon name="rocket-outline"></ion-icon>
+            <ng-container *ngIf="loggedInUser">Hello {{loggedInUser}}! <a class="link" (click)="logout()">(logout)</a></ng-container>
+          </h3>
+        </div>
+        <div>
+          <h5>See what others are saying!</h5>
+        </div>
+      </div>
+    </ion-list-header>
+    <ion-item *ngFor="let f of feed">
+      <ion-label>
+        <div class="label">
+              <div class="circle">
+                {{getAvatarInitials(f.name)}}
+              </div>
+              <div class="name">
+                <a [routerLink]="['/','posts', f.id]">{{f.name}}</a>
+              </div>
+          </div>
+     </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div id="icons">
+      <a href="https://facebook.com" target="_blank"><ion-icon name="logo-facebook" size="large" color="'#1877F2'"></ion-icon></a>
+      <a href="https://instagram.com" target="_blank"><ion-icon name="logo-instagram" size="large"></ion-icon></a>
+      <a href="https://twitter.com" target="_blank"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
+    </div>
+  </ion-toolbar>
+</ion-footer>

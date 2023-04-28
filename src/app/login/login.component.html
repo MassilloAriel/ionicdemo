@@ -1,0 +1,28 @@
+<ion-content>
+  <div id="login">
+    <form (submit)="onSubmit()" [formGroup]="form">
+      <ion-list>
+        <div id="logo">
+          <img src="assets/images/reading.png" alt="icon reading">
+        </div>
+        <ion-list>
+          <ion-item>
+            <ion-input label="Username" placeholder="" formControlName="username" autocomplete="off"></ion-input>
+          </ion-item>
+          <div class="error" *ngIf="submitted && !form.controls.username.valid">Provide a valid username</div>
+
+          <ion-item>
+            <ion-input label="Password" type="password" value="" formControlName="password" autocomplete="off"></ion-input>
+          </ion-item>
+          <div class="error"  *ngIf="submitted && !form.controls.password.valid">Provide your password</div>
+
+          <div class="error" *ngIf="loginError">{{loginError}}</div>
+
+          <div id="btn">
+            <ion-button type="submit" fill="outline" size="default">Login</ion-button>
+          </div>
+        </ion-list>
+      </ion-list> 
+    </form>
+  </div>
+</ion-content>
